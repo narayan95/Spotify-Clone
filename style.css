@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -16,9 +17,10 @@ body {
     background-color: rgb(0, 0, 0);
     width: 20%;
     color: rgb(168, 164, 164);
-  
+
 }
-.nav .sticky{
+
+.nav .sticky {
     position: sticky;
     top: 0;
 }
@@ -33,6 +35,11 @@ body {
     height: 2rem;
     width: 2rem;
     margin-left: 10%;
+}
+
+.logo {
+    visibility: hidden;
+    margin-left: 1%;
 }
 
 .nav img {
@@ -57,40 +64,42 @@ body {
 
 }
 
-li i{
+li i {
     margin-right: 5%;
 }
 
 .songItemContainer {
-   
-    padding: 34px;
+
+    padding: 2rem;
 }
 
 .songItem {
-    height: 50px;
+    height: 3rem;
     display: flex;
 
     color: rgb(160, 158, 158);
-    margin: 12px 0;
+    margin: 0.8rem 0;
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
 }
 
 .songItem img {
-    width: 43px;
-    margin: 0 23px;
+    width: 3rem;
+    margin: 0 1.5rem;
 
 }
-.songName{
+
+.songName {
     cursor: pointer;
 }
-.songName:hover
-{
+
+.songName:hover {
     text-decoration: underline;
 }
+
 .timestamp {
-    margin: 0 23px;
+    margin: 0 1.5rem;
 }
 
 .timestamp i {
@@ -132,53 +141,97 @@ li i{
     opacity: 0;
     transition: opacity 0.4s ease-in;
 }
-.heading1{
-    color:white;
+
+.heading1 {
+    color: white;
     font-size: 1.3rem;
     font-weight: 800;
 }
-.heading2{
+
+.heading2 {
     color: white;
     font-size: 4rem;
     font-family: 'Roboto', sans-serif;
-    
+
 }
-.heading3{
+
+.heading3 {
     color: rgb(201, 197, 197);
     font-size: 1.1rem;
     padding: 2%;
 }
-.heading{
+
+.heading {
     display: flex;
     padding: 5% 5% 0% 5%;
 }
-.heading-right, .heading-left
-{
+
+.heading-right,
+.heading-left {
     padding: 2% 2% 0%;
 }
-.heading-left img{
+
+.heading-left img {
     height: 80%;
     width: 80%;
 }
-nav{
-    background-color: rgb(47, 46, 46,0.5);
+
+nav {
+    display: flex;
+    background-color: rgb(47, 46, 46, 0.5);
     padding: 1.5%;
-   min-height: 5vh;
-    
+    min-height: 5vh;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
 }
+
 .btn {
-float: right; 
+
     border: 0px solid white;
     border-radius: 5rem;
     color: #b5b1b1;
     font-size: 0.8rem;
     background: #242020;
-    padding: 1% 0.5% ;
+    padding: 1% 0.5%;
     position: sticky;
     right: 0;
-   
-  }
-  .btn i{
+
+}
+
+.btn i {
     padding: 0% 2px 1% 2px;
-  }
-  
+}
+/* .songListPlay{
+    margin-left: 5%;
+} */
+
+@media only screen and (max-width: 1100px) {
+    .nav {
+        display: none;
+
+    }
+
+    .body {
+        width: 100%;
+    }
+
+    #masterSongName {
+        display: none;
+    }
+
+    .logo {
+        visibility: visible;
+    }
+}
+@media only screen and (max-width: 560px)
+{
+    .songItem img{
+        display: none;
+    }
+    
+.songItemContainer {
+
+    padding: 5px;
+}
+}
