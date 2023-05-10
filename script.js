@@ -34,10 +34,14 @@ masterPlay.addEventListener('click', () => {
         audioElement.play();
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
+        document.getElementById(songIndex).classList.add("fa-pause-circle");
+        document.getElementById(songIndex).classList.remove("fa-play-circle");
         gif.style.opacity = 1;
     }
     else {
         audioElement.pause();
+        document.getElementById(songIndex).classList.add("fa-play-circle");
+        document.getElementById(songIndex).classList.remove("fa-pause-circle");
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity = 0;
@@ -67,7 +71,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
         songIndex = parseInt(e.target.id);
         e.target.classList.remove('fa-play-circle');
         e.target.classList.add('fa-pause-circle');
-        audioElement.src = `songs/${songIndex + 1}.mp3`;
+        audioElement.src = `/Spotify-Clone/songs/${songIndex + 1}.mp3`;
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         audioElement.play();
@@ -84,6 +88,9 @@ document.getElementById('next').addEventListener('click', () => {
     else {
         songIndex += 1;
     }
+    makeAllPlays();
+    document.getElementById(songIndex).classList.add("fa-pause-circle");
+    document.getElementById(songIndex).classList.remove("fa-play-circle");
     audioElement.src = `/Spotify-Clone/songs/${songIndex + 1}.mp3`;
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
@@ -95,15 +102,47 @@ document.getElementById('next').addEventListener('click', () => {
 
 document.getElementById('previous').addEventListener('click', () => {
     if (songIndex <= 0) {
-        songIndex = 0
+        songIndex = 9;
     }
     else {
         songIndex -= 1;
     }
+    makeAllPlays();
+    document.getElementById(songIndex).classList.add("fa-pause-circle");
+    document.getElementById(songIndex).classList.remove("fa-play-circle");
     audioElement.src = `/Spotify-Clone/songs/${songIndex + 1}.mp3`;
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
+})
+//when user clicks on somg name then a click function should be triggered
+
+/* This code is selecting all elements with the class "songName" using the `querySelectorAll` method
+and storing them in the variable `a`. It then loops through each element in `a` using a for loop and
+adds a click event listener to each element. The event listener calls the `callme` function with the
+index `i` as an argument. However, the `callme` function is currently empty and does not perform any
+actions. */
+Array.from(document.querySelectorAll(".songName")).forEach((element)=>
+{
+    element.addEventListener('click',(e)=>
+    {
+        songIndex= parseInt(e.target.id);
+        songIndex-=10;
+        makeAllPlays();
+        document.getElementById(songIndex).classList.add("fa-pause-circle");
+        document.getElementById(songIndex).classList.remove("fa-play-circle");
+        audioElement.src = `/Spotify-Clone/songs/${songIndex + 1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.add('fa-pause-circle');
+
+
+    })
+
+
+
 })
